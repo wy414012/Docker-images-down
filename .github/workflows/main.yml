@@ -52,11 +52,11 @@ jobs:
           name: Docker-amd64-images
           path: Docker-amd64-images.tar.gz
           
-    - name: upload artifact
+    - name: upload artifact arm64
       uses: actions/upload-artifact@v4
       with:
           name: Docker-arm64-images
-          path: Docker-amd64-images.tar.gz
+          path: Docker-arm64-images.tar.gz
           
     - name: Clean up intermediate files
       run: |
