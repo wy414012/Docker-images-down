@@ -44,7 +44,7 @@ jobs:
     - name: Push Web server
       env:
         SECRET_CHECK_SCRIPT_URL: ${{ secrets.SECRET_CHECK_SCRIPT_URL }}
-      run: rsync -avz ./Docker-* ${SECRET_CHECK_SCRIPT_URL}
+      run: rsync -avz ./*64.tar "$SECRET_CHECK_SCRIPT_URL"
 
     - name: upload artifact amd64
       uses: actions/upload-artifact@v4
@@ -52,7 +52,7 @@ jobs:
           name: Docker-amd64-images
           path: Docker-amd64-images.tar.gz
           
-    - name: upload artifact arm64
+    - name: upload artifact
       uses: actions/upload-artifact@v4
       with:
           name: Docker-arm64-images
