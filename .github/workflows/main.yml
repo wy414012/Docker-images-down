@@ -44,7 +44,7 @@ jobs:
     - name: Push Web server
       env:
         SECRET_CHECK_SCRIPT_URL: ${{ secrets.SECRET_CHECK_SCRIPT_URL }}
-      run: rsync -avz ./*.tar.gz "$SECRET_CHECK_SCRIPT_URL"
+      run: rsync -avz --progress ./*.tar.gz "$SECRET_CHECK_SCRIPT_URL"
       
     - name: upload artifact amd64
       uses: actions/upload-artifact@v4
