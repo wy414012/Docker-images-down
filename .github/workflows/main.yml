@@ -16,7 +16,7 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
 
-    - name: Pull Docker Images and Package
+    - name: Save Docker Images
       run: |
         images="${{ github.event.inputs.docker_images }}"
         IFS=',' read -r -a image_array <<< "$images"
@@ -26,4 +26,7 @@ jobs:
         done
 
     - name: Compress the TAR files
-      run: ls
+      run: |
+       for file in *.tar; do
+           tar -czf "${file%.tar}.tar.gz" "$file"
+       done
