@@ -6,7 +6,7 @@ on:
       docker_images:
         description: '请填写docker镜像名称 多个用英文逗号分开'
         required: true
-        default: 'alpine:latest,debian:latest,debian:11,ubuntu:latest,ubuntu:22.04,ubuntu:20.04'
+        default: 'alpine:latest,debian:latest'
 
 jobs:
   sync-docker-images:
